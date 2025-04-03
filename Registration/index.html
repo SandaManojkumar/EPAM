@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form action="" method="POST" onsubmit="return showSelectedCourse();">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        <label for="rollno">Roll Number:</label>
+        <input type="text" id="rollno" name="rollno" placeholder="Enter your roll number" required>
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" placeholder="Enter your year" min="1" max="5" required>
+        <label for="courses">Select a Course:</label>
+        <select id="courses" name="course" required>
+            <option value="">--Select a Course--</option>
+            <option value="EPAM">EPAM</option>
+            <option value="Cloud Based AIML Speciality">Cloud Based AIML Speciality</option>
+            <option value="Technical Internship">Technical Internship</option>
+            <option value="SIL">SIL</option>
+            <option value="PDC">PDC</option>
+            <option value="Deep Learning">Deep Learning</option>
+        </select>
+        <button type="submit">Register</button>
+    </form>
+    <div id="successMessage" style="display: none; color: green; font-weight: bold; margin-top: 20px;"></div>
+
+    <script>
+        function showSelectedCourse() {
+            const selectedCourse = document.getElementById('courses').value;
+            if (!selectedCourse) {
+                alert('Please select a course!');
+                return false;
+            }
+            document.getElementById('successMessage').textContent = `Registered Successfully for ${selectedCourse}!`;
+            document.getElementById('successMessage').style.display = 'block';
+            return false;
+        }
+    </script>
+</body>
+</html>
